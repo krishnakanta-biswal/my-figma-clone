@@ -1,0 +1,297 @@
+/* Reset & base ----------------------------------------------------------- */
+:root{
+  --bg: #fbfdff;
+  --muted: #6b7280;
+  --accent: #ff3fa6;    /* magenta */
+  --accent-2: #ff5da4;
+  --card: #fff;
+  --radius: 14px;
+  --container: 1200px;
+  --shadow: 0 10px 30px rgba(16,24,40,0.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Inter", "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background:var(--bg);
+  color:#111827;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Layout center wrapper */
+.wrap{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+/* Topbar --------------------------------------------------------------- */
+.topbar{background:#fff;border-bottom:1px solid rgba(16,24,40,0.04);position:sticky;top:0;z-index:80}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+.brand{display:flex;align-items:center;gap:18px}
+.logo{font-weight:700;color:#111827;padding:6px 10px;border-radius:8px;}
+.main-nav .nav-link{color:var(--muted);text-decoration:none;font-weight:600}
+.main-nav .nav-link.active{color:var(--accent)}
+.actions{display:flex;gap:10px;align-items:center}
+.btn{cursor:pointer;border-radius:999px;padding:8px 14px;border:1px solid rgba(16,24,40,0.06);font-weight:700;background:#fff}
+.btn:focus{outline:3px solid rgba(255,63,166,0.15)}
+.btn-ghost{background:transparent}
+.btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border:none}
+.btn-accent{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:8px;font-weight:700}
+
+/* Hero ----------------------------------------------------------------- */
+.hero{position:relative;padding-bottom:48px;overflow:hidden}
+.hero-img{width:100%;height:380px;object-fit:cover;display:block;filter:contrast(1.02) saturate(1.05) brightness(.92)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(11,12,16,0.18), rgba(11,12,16,0.05));pointer-events:none}
+.hero-inner{display:flex;gap:28px;align-items:center;margin-top:-120px;padding:28px 20px}
+.hero-left{flex:1;color:white;backdrop-filter:blur(4px);border-radius:12px;padding:26px;position:relative}
+.card-soft{background:linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));border-radius:12px;padding:16px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,0.06)}
+.hero-title{font-size:34px;line-height:1.02;margin:0 0 8px;font-weight:800;color:#fff;text-shadow:0 8px 30px rgba(10,12,20,0.35)}
+.hero-title span{color:#ffe38b}
+.hero-sub{margin:6px 0 14px;color:rgba(255,255,255,0.9);font-weight:600}
+
+/* search */
+.search-row{display:flex;gap:8px;align-items:center}
+.search{flex:1;padding:12px 14px;border-radius:10px;border:none;background:#fff;min-width:180px}
+.search:focus{outline:3px solid rgba(255,63,166,0.12)}
+.hero-right{width:260px;flex-shrink:0;display:flex;justify-content:center;align-items:center}
+.hero-card{width:260px;height:180px;object-fit:cover;border-radius:12px;box-shadow:var(--shadow);border:6px solid #fff;transform:translateY(8px)}
+
+/* Section container ---------------------------------------------------- */
+.container-section{padding:36px 0}
+.section-title{font-size:22px;margin:6px 0 12px;font-weight:700}
+.center{text-align:center}
+.subtle{color:var(--muted);margin:6px 0 18px}
+
+/* Pills & categories --------------------------------------------------- */
+.pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.pill{background:#fff;border-radius:999px;padding:8px 14px;border:1px solid rgba(16,24,40,0.06);cursor:pointer;font-weight:600;color:var(--muted)}
+.pill.active{background:linear-gradient(90deg,#fff,#fff);border:1px solid rgba(255,63,166,0.12);box-shadow:0 6px 18px rgba(255,63,166,0.06);color:var(--accent)}
+
+/* Grid system ---------------------------------------------------------- */
+.grid{display:grid;gap:18px}
+.courses{grid-template-columns:repeat(1,1fr)}
+@media(min-width:700px){ .courses{grid-template-columns:repeat(2,1fr)} }
+@media(min-width:1000px){ .courses{grid-template-columns:repeat(3,1fr)} }
+@media(min-width:1250px){ .courses{grid-template-columns:repeat(4,1fr)} }
+
+/* MOBILE horizontal scrolling for courses */
+@media (max-width: 700px) {
+  .courses {
+    display: flex;
+    overflow-x: auto;
+    gap: 14px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+  }
+  .courses .card {
+    flex: 0 0 40%;
+    scroll-snap-align: start;
+  }
+}
+
+/* Course Card ---------------------------------------------------------- */
+.card{background:var(--card);border-radius:12px;overflow:hidden;border:1px solid rgba(16,24,40,0.04);box-shadow:var(--shadow);transition:transform .22s ease,box-shadow .22s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 46px rgba(16,24,40,0.12)}
+.media{position:relative}
+.media img{width:100%;height:160px;object-fit:cover;display:block}
+.badge{position:absolute;left:12px;top:12px;background:#fff;padding:6px 10px;border-radius:999px;font-weight:700;color:var(--accent);font-size:12px;border:1px solid rgba(16,24,40,0.04)}
+.badge-new{color:#ff5d8a}
+.badge-featured{color:#6b46c1}
+.badge-hot{color:#ff8a4a}
+.badge-popular{color:#0ea5a4}
+.badge-trending{color:#f59e0b}
+.body{padding:14px;display:flex;flex-direction:column;gap:8px}
+.title{margin:0;font-weight:700;font-size:16px}
+.desc{margin:0;color:var(--muted);font-size:13px}
+.meta-row{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+.meta{color:var(--muted);font-size:13px}
+.price{color:var(--accent);font-weight:800}
+
+/* Teachers ------------------------------------------------------------- */
+.teacher-row{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin-top:18px}
+.teacher{display:flex;gap:12px;align-items:center;padding:10px 14px;border-radius:12px;border:1px solid rgba(16,24,40,0.04);box-shadow:var(--shadow)}
+.teacher img{width:56px;height:56px;object-fit:cover;border-radius:10px}
+.tname{font-weight:700}
+.tsub{color:var(--muted);font-size:13px}
+
+/* Webinar section ------------------------------------------------------ */
+.webinar-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.webinar-row .mini.card-soft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 0;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(16,24,40,0.04);
+  flex: 1 1 calc(33.333% - 20px);
+  min-width: 260px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.webinar-row .mini.card-soft:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(16,24,40,0.1);
+}
+.webinar-row .mini.card-soft img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+.webinar-row .mini.card-soft div {
+  padding: 14px;
+}
+.webinar-row .mini.card-soft small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+.webinar-row .mini.card-soft div div {
+  font-weight: 600;
+  color: #111827;
+}
+@media (max-width: 900px) {
+  .webinar-row .mini.card-soft {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+@media (max-width: 600px) {
+  .webinar-row .mini.card-soft {
+    flex: 1 1 100%;
+  }
+}
+
+/* categories ----------------------------------------------------------- */
+.categories-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+.category{display:flex;gap:8px;align-items:center;padding:10px 12px;border-radius:10px;border:1px solid rgba(16,24,40,0.04)}
+
+/* small cards for time filter ----------------------------------------- */
+.small-cards{grid-template-columns:repeat(1,1fr)}
+@media(min-width:900px){ .small-cards{grid-template-columns:repeat(3,1fr)} }
+
+/* No results ----------------------------------------------------------- */
+.no-results{margin-top:18px;padding:18px;text-align:center;color:var(--muted)}
+
+/* Footer --------------------------------------------------------------- */
+.site-footer{background:#fff;border-top:1px solid rgba(16,24,40,0.04);padding:24px 0;margin-top:40px}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
+
+/* small utilities ------------------------------------------------------ */
+.muted{color:var(--muted)}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.star{font-size:18px;color:#ffcc00}
+
+/* Animations ----------------------------------------------------------- */
+@keyframes fadeUp {
+  from {opacity:0;transform:translateY(10px)}
+  to {opacity:1;transform:translateY(0)}
+}
+.card, .teacher, .mini {animation:fadeUp .45s ease both}
+
+/* Welcome Modal */
+@keyframes fadeUp {
+  from {opacity: 0;transform: translateY(20px) scale(0.96);}
+  to {opacity: 1;transform: translateY(0) scale(1);}
+}
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeUp 0.3s ease forwards;
+}
+.modal-content {
+  background: #fff;
+  padding: 24px;
+  border-radius: var(--radius);
+  max-width: 360px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(20px) scale(0.96);
+  animation: fadeUp 0.4s ease forwards;
+}
+.modal-content h2 {margin-top: 0;font-size: 22px;}
+.modal-content p {color: var(--muted);font-size: 14px;margin: 10px 0 18px;}
+#close-modal {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+#close-modal:hover {opacity: 0.9;}
+@keyframes fadeOut {
+  from {opacity: 1;transform: translateY(0) scale(1);}
+  to {opacity: 0;transform: translateY(20px) scale(0.96);}
+}
+.modal-overlay.fade-out {animation: fadeOut 0.3s ease forwards;}
+.modal-content.fade-out {animation: fadeOut 0.3s ease forwards;}
+
+/* Responsive tweaks --------------------------------------------------- */
+@media (max-width:900px){
+  .hero-inner{flex-direction:column;align-items:stretch;margin-top:-90px}
+  .hero-right{display:none}
+  .hero-left{margin:0}
+  .hero-img{height:320px}
+}
+@media (max-width:480px){
+  .hero-img{height:240px}
+  .hero-title{font-size:20px}
+  .wrap{padding:0 14px}
+  .actions{gap:6px}
+  .hero-card{display:none}
+  .courses{grid-template-columns:1fr}
+  .small-cards{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;gap:10px}
+}
+
+
+/* Horizontal scroll for teachers on mobile */
+@media (max-width: 700px) {
+  .teacher-row {
+    display: flex;
+    overflow-x: auto;
+    gap: 14px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+    flex-wrap: nowrap;
+  }
+  .teacher {
+    flex: 0 0 28%; /* shows ~3-4 at once */
+    scroll-snap-align: start;
+  }
+}
+
+/* Horizontal scroll for webinars on mobile */
+@media (max-width: 700px) {
+  .webinar-row {
+    display: flex;
+    overflow-x: auto;
+    gap: 14px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+    flex-wrap: nowrap;
+  }
+  .webinar-row .mini.card-soft {
+    flex: 0 0 70%; /* adjust to ~2 per screen, can change to 45% for ~2-3 */
+    scroll-snap-align: start;
+  }
+}

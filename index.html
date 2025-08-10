@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Course Browse — Replica</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <!-- Top Navigation -->
+  <header class="topbar" role="banner">
+    <div class="wrap">
+      <div class="brand">
+        <div class="logo">Logo</div>
+        <nav class="main-nav" aria-label="Main">
+          <a class="nav-link active" href="#">Course</a>
+        </nav>
+      </div>
+      <div class="actions">
+        <button class="btn btn-ghost">Login</button>
+        <button class="btn btn-primary">Register for free</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <img class="hero-img" src="assets/assets.jpg" alt="hero background">
+      <div class="hero-overlay"></div>
+
+      <div class="wrap hero-inner">
+        <div class="hero-left card-soft">
+          <h1 class="hero-title">Learn a New Skill<br> <span>Everyday, Anytime, and Anywhere.</span></h1>
+          <p class="hero-sub">500+ Courses · 10k+ happy kids · 4.9 Rating</p>
+
+          <div class="search-row" role="search" aria-label="Search courses">
+            <input id="searchInput" class="search" type="search" placeholder="What do you want to learn today?" aria-label="Search courses">
+            <button id="searchBtn" class="btn btn-accent">Search</button>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <img src="assets/assets.jpg" alt="" aria-hidden="true" class="hero-card">
+        </div>
+      </div>
+    </section>
+
+    <!-- Age Filter -->
+    <section class="container-section">
+      <div class="wrap">
+        <h2 class="section-title center">How Old Are You? <span class="emoji">🎯</span></h2>
+        <div id="agePills" class="pills" role="list">
+          <!-- buttons toggle active -->
+          <button class="pill" data-age="1-2" role="listitem">1-2 Years</button>
+          <button class="pill" data-age="2-3" role="listitem">2-3 Years</button>
+          <button class="pill" data-age="4-5" role="listitem">4-5 Years</button>
+          <button class="pill" data-age="6-7" role="listitem">6-7 Years</button>
+          <button class="pill" data-age="8-9" role="listitem">8-9 Years</button>
+          <button class="pill" data-age="10-11" role="listitem">10-11 Years</button>
+          <button class="pill" data-age="12-13" role="listitem">12-13 Years</button>
+          <button class="pill" data-age="14-15" role="listitem">14-15 Years</button>
+          <button class="pill" data-age="16-17" role="listitem">16-17 Years</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Launches -->
+    <section class="container-section">
+      <div class="wrap">
+        <div class="section-header">
+          <h3>New Launches</h3>
+          <div class="star">⭐</div>
+        </div>
+
+        <div id="courseContainer" class="grid courses">
+          <!-- Course card template: data-title and data-ages (comma-separated) used for filtering -->
+          <article class="card course" data-title="Summer robotics camp" data-ages="7-10,6-10" tabindex="0">
+            <div class="media">
+              <img src="assets/assets2.jpg" alt="Summer robotics camp">
+              <span class="badge">Selling Fast</span>
+            </div>
+            <div class="body">
+              <h4 class="title">Summer robotics camp: fun projects with arduino</h4>
+              <p class="desc">Build circuits & smart projects like alarms, weather stations, etc.</p>
+              <div class="meta-row">
+                <span class="meta">7-10 yrs</span>
+                <span class="price">₹ 299</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card course" data-title="Python coding basics" data-ages="8-12">
+            <div class="media">
+              <img src="assets/assets2.jpg" alt="Python coding basics">
+              <span class="badge badge-new">New</span>
+            </div>
+            <div class="body">
+              <h4 class="title">Python coding basics for kids</h4>
+              <p class="desc">Learn the basics of Python through fun activities.</p>
+              <div class="meta-row">
+                <span class="meta">8-12 yrs</span>
+                <span class="price">₹ 249</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card course" data-title="Chess masterclass" data-ages="9-13">
+            <div class="media">
+              <img src="assets/assets2.jpg" alt="Chess masterclass">
+              <span class="badge badge-featured">Featured</span>
+            </div>
+            <div class="body">
+              <h4 class="title">Chess masterclass</h4>
+              <p class="desc">Improve your chess skills with step-by-step guidance.</p>
+              <div class="meta-row">
+                <span class="meta">9-13 yrs</span>
+                <span class="price">₹ 199</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card course" data-title="Public speaking for kids" data-ages="6-10">
+            <div class="media">
+              <img src="assets/assets2.jpg" alt="Public speaking for kids">
+              <span class="badge badge-hot">Hot</span>
+            </div>
+            <div class="body">
+              <h4 class="title">Public speaking for kids</h4>
+              <p class="desc">Boost confidence with fun speaking exercises.</p>
+              <div class="meta-row">
+                <span class="meta">6-10 yrs</span>
+                <span class="price">₹ 179</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card course" data-title="App building basics" data-ages="10-14">
+            <div class="media">
+              <img src="assets/assets2.jpg" alt="App building basics">
+              <span class="badge badge-popular">Popular</span>
+            </div>
+            <div class="body">
+              <h4 class="title">App building basics</h4>
+              <p class="desc">Design simple apps and learn logic & UI.</p>
+              <div class="meta-row">
+                <span class="meta">10-14 yrs</span>
+                <span class="price">₹ 349</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card course" data-title="Drawing and sketching" data-ages="5-9">
+            <div class="media">
+              <img src="assets/assets2.jpg" alt="Drawing and sketching">
+              <span class="badge badge-trending">Trending</span>
+            </div>
+            <div class="body">
+              <h4 class="title">Drawing and sketching</h4>
+              <p class="desc">Learn drawing fundamentals and character art.</p>
+              <div class="meta-row">
+                <span class="meta">5-9 yrs</span>
+                <span class="price">₹ 149</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div id="noResults" class="no-results" hidden>No courses found</div>
+      </div>
+    </section>
+
+    <!-- Featured Courses -->
+    <section class="container-section muted-bg">
+      <div class="wrap">
+        <div class="section-header">
+          <h3>Featured Courses</h3>
+          <div class="star">⭐</div>
+        </div>
+
+        <div class="grid courses">
+          <article class="card course" data-title="Featured robotics" data-ages="7-11">
+            <div class="media">
+              <img src="assets/assets2.jpg" alt="">
+              <span class="badge">Top</span>
+            </div>
+            <div class="body">
+              <h4 class="title">Featured robotics for kids</h4>
+              <p class="desc">Hands-on robotics projects with guided lessons.</p>
+              <div class="meta-row">
+                <span class="meta">7-11 yrs</span>
+                <span class="price">₹ 399</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card course" data-title="Featured Python" data-ages="9-12">
+            <div class="media">
+              <img src="assets/assets2.jpg" alt="">
+              <span class="badge">Top</span>
+            </div>
+            <div class="body">
+              <h4 class="title">Featured Python course</h4>
+              <p class="desc">Project driven Python learning for beginners.</p>
+              <div class="meta-row">
+                <span class="meta">9-12 yrs</span>
+                <span class="price">₹ 349</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card course" data-title="Featured chess" data-ages="9-14">
+            <div class="media">
+              <img src="assets/assets2.jpg" alt="">
+              <span class="badge">Top</span>
+            </div>
+            <div class="body">
+              <h4 class="title">Featured Chess course</h4>
+              <p class="desc">In-depth chess strategies and puzzles.</p>
+              <div class="meta-row">
+                <span class="meta">9-14 yrs</span>
+                <span class="price">₹ 219</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card course" data-title="Featured public speaking" data-ages="6-12">
+            <div class="media">
+              <img src="assets/assets2.jpg" alt="">
+              <span class="badge">Top</span>
+            </div>
+            <div class="body">
+              <h4 class="title">Featured public speaking</h4>
+              <p class="desc">Confidence & stage presence for kids.</p>
+              <div class="meta-row">
+                <span class="meta">6-12 yrs</span>
+                <span class="price">₹ 249</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teachers -->
+    <section class="container-section">
+      <div class="wrap center">
+        <h3>Learn from Top Teachers</h3>
+        <p class="subtle">Expert instructors who make learning fun and engaging.</p>
+
+        <div class="teacher-row">
+          <div class="teacher card-soft">
+            <img src="assets/assets2.jpg" alt="">
+            <div>
+              <div class="tname">Andy Brew</div>
+              <div class="tsub">Computer science · 10k+ students</div>
+            </div>
+          </div>
+
+          <div class="teacher card-soft">
+            <img src="assets/assets2.jpg" alt="">
+            <div>
+              <div class="tname">Emily Rai</div>
+              <div class="tsub">English · 8k+ students</div>
+            </div>
+          </div>
+
+          <div class="teacher card-soft">
+            <img src="assets/assets2.jpg" alt="">
+            <div>
+              <div class="tname">Suman Patel</div>
+              <div class="tsub">Maths · 6k+ students</div>
+            </div>
+          </div>
+
+          <div class="teacher card-soft">
+            <img src="assets/assets2.jpg" alt="">
+            <div>
+              <div class="tname">Rita Gomes</div>
+              <div class="tsub">Coding · 5k+ students</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Webinar -->
+    <section class="container-section muted-bg">
+      <div class="wrap">
+        <h3 class="section-title">Webinar starting within 24 hrs</h3>
+        <div class="webinar-row">
+          <div class="mini card-soft">
+            <img src="assets/assets2.jpg" alt="">
+            <div>
+              <small>Starting at 9am</small>
+              <div>Summer robotics camp: fun projects</div>
+            </div>
+          </div>
+
+          <div class="mini card-soft">
+            <img src="assets/assets2.jpg" alt="">
+            <div>
+              <small>Starting at 6pm</small>
+              <div>Python coding basics for kids</div>
+            </div>
+          </div>
+
+          <div class="mini card-soft">
+            <img src="assets/assets2.jpg" alt="">
+            <div>
+              <small>Starting at 5pm</small>
+              <div>Chess masterclass</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="container-section">
+      <div class="wrap center">
+        <h3>Popular Categories</h3>
+        <p class="subtle">Pick what you love most! These categories have everything you need to learn something awesome ✨</p>
+
+        <div class="categories-row">
+          <button class="category card-soft"><span class="icon">💻</span>Coding</button>
+          <button class="category card-soft"><span class="icon">🎤</span>Public speaking</button>
+          <button class="category card-soft"><span class="icon">♟️</span>Chess</button>
+          <button class="category card-soft"><span class="icon">🏠</span>Home work help</button>
+          <button class="category card-soft"><span class="icon">📱</span>App building</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter with Time -->
+    <section class="container-section">
+      <div class="wrap center">
+        <h3>Filter with Time</h3>
+        <p class="subtle">Choose the perfect time that fits your child's schedule</p>
+
+        <div class="pills">
+          <button class="pill">Morning classes <small>8am-12pm</small></button>
+          <button class="pill">Afternoon classes <small>12pm-4pm</small></button>
+          <button class="pill">Evening classes <small>4pm-8pm</small></button>
+          <button class="pill">Late evening <small>8pm-11pm</small></button>
+        </div>
+
+        <div class="grid courses small-cards">
+          <article class="card course" data-title="Morning robotics" data-ages="7-10">
+            <div class="media">
+              <img src="assets/assets2.jpg" alt="">
+            </div>
+            <div class="body">
+              <h4 class="title">Summer robotics camp</h4>
+              <p class="desc">Starting at 9am · 7-10 yrs</p>
+            </div>
+          </article>
+
+          <article class="card course" data-title="Afternoon python" data-ages="8-12">
+            <div class="media"><img src="assets/assets2.jpg" alt=""></div>
+            <div class="body">
+              <h4 class="title">Python coding basics for kids</h4>
+              <p class="desc">Starting at 2pm · 8-12 yrs</p>
+            </div>
+          </article>
+
+          <article class="card course" data-title="Evening chess" data-ages="9-13">
+            <div class="media"><img src="assets/assets2.jpg" alt=""></div>
+            <div class="body">
+              <h4 class="title">Chess masterclass</h4>
+              <p class="desc">Starting at 6pm · 9-13 yrs</p>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>© 2025 Example · Made to match Figma</div>
+      <div class="muted">Terms · Privacy</div>
+    </div>
+  </footer>
+
+  <div id="welcome-modal" class="modal-overlay">
+  <div class="modal-content">
+    <h2>👋 Welcome to Undo School!</h2>
+    <p>We’re glad to have you here. Explore our courses and have fun learning!</p>
+    <button id="close-modal" class="btn-primary">Let’s Go</button>
+  </div>
+</div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
